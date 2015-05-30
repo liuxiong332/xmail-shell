@@ -9,8 +9,6 @@ require 'vm-compatibility-layer'
 
 _ = require 'underscore-plus'
 
-packageJson = require '../package.json'
-
 module.exports = (grunt) ->
   grunt.loadNpmTasks('grunt-build-atom-shell')
 
@@ -23,8 +21,8 @@ module.exports = (grunt) ->
 
   tmpDir = os.tmpdir()
 
-  pkgName = packageJson.name
-  productName = packageJson.productName
+  pkgName = 'xmail'
+  productName = 'Xmail'
   appName = if process.platform is 'darwin' then "#{productName}.app" else productName
   executableName = if process.platform is 'win32' then "#{productName}.exe" else productName
   executableName = executableName.toLowerCase() if process.platform is 'linux'
